@@ -1,0 +1,321 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis:300,400,500");
+
+@-moz-keyframes rocket-movement {
+  100% {
+    -moz-transform: translate(1200px, -600px);
+  }
+}
+@-webkit-keyframes rocket-movement {
+  100% {
+    -webkit-transform: translate(1200px, -600px);
+  }
+}
+@keyframes rocket-movement {
+  100% {
+    transform: translate(1200px, -600px);
+  }
+}
+@-moz-keyframes spin-earth {
+  100% {
+    -moz-transform: rotate(-360deg);
+    transition: transform 20s;
+  }
+}
+@-webkit-keyframes spin-earth {
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transition: transform 20s;
+  }
+}
+@keyframes spin-earth {
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+    transition: transform 20s;
+  }
+}
+
+@-moz-keyframes move-astronaut {
+  100% {
+    -moz-transform: translate(-160px, -160px);
+  }
+}
+@-webkit-keyframes move-astronaut {
+  100% {
+    -webkit-transform: translate(-160px, -160px);
+  }
+}
+@keyframes move-astronaut {
+  100% {
+    -webkit-transform: translate(-160px, -160px);
+    transform: translate(-160px, -160px);
+  }
+}
+@-moz-keyframes rotate-astronaut {
+  100% {
+    -moz-transform: rotate(-720deg);
+  }
+}
+@-webkit-keyframes rotate-astronaut {
+  100% {
+    -webkit-transform: rotate(-720deg);
+  }
+}
+@keyframes rotate-astronaut {
+  100% {
+    -webkit-transform: rotate(-720deg);
+    transform: rotate(-720deg);
+  }
+}
+
+@-moz-keyframes glow-star {
+  40% {
+    -moz-opacity: 0.3;
+  }
+  90%,
+  100% {
+    -moz-opacity: 1;
+    -moz-transform: scale(1.2);
+  }
+}
+@-webkit-keyframes glow-star {
+  40% {
+    -webkit-opacity: 0.3;
+  }
+  90%,
+  100% {
+    -webkit-opacity: 1;
+    -webkit-transform: scale(1.2);
+  }
+}
+@keyframes glow-star {
+  40% {
+    -webkit-opacity: 0.3;
+    opacity: 0.3;
+  }
+  90%,
+  100% {
+    -webkit-opacity: 1;
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    border-radius: 999999px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-image: url(http://salehriaz.com/404Page/img/bg_purple.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.central-body {
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+header {
+  width: 100%;
+  padding: 10px 19px;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 90px;
+}
+
+.links {
+  width: 400px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 20px;
+  position: relative;
+}
+a::after {
+  content: "";
+  width: 0;
+  height: 1px;
+  background-color: springgreen;
+  position: absolute;
+  left: 0;
+  bottom: -5%;
+  transition: 0.3s ease;
+}
+a:hover::after {
+  width: 100%;
+}
+a:nth-last-child(1) {
+  padding: 7px 15px;
+  border-radius: 50px;
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+}
+a:nth-last-child(1) .green {
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background-color: rgba(0, 255, 128, 0.508);
+  top: 0;
+  left: 0;
+  transition: 0.3s ease;
+}
+a:nth-last-child(1):hover .green {
+  width: 100%;
+  cursor: pointer;
+}
+
+#btn-home {
+  padding: 9px 12px;
+  font-size: 19px;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 50px;
+  color: white;
+  margin: 15px 0;
+  position: relative;
+  overflow: hidden;
+}
+#green {
+  width: 0;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 255, 128, 0.636);
+  top: 0;
+  left: 0;
+  transition: 0.3s ease;
+}
+#btn-home:hover #green {
+  width: 100%;
+  cursor: pointer;
+}
+
+.objects img {
+  z-index: 90;
+  pointer-events: none;
+}
+.object_rocket {
+  z-index: 95;
+  position: absolute;
+  transform: translateX(-50px);
+  top: 75%;
+  pointer-events: none;
+  animation: rocket-movement 200s linear infinite both running;
+}
+
+.object_earth {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  z-index: 90;
+  /*    animation: spin-earth 100s infinite linear both;*/
+}
+
+.object_moon {
+  position: absolute;
+  top: 12%;
+  left: 25%;
+  /*
+    transform: rotate(0deg);
+    transition: transform ease-in 99999999999s;
+*/
+}
+
+.object_astronaut {
+  animation: rotate-astronaut 200s infinite linear both alternate;
+}
+
+.box_astronaut {
+  z-index: 110 !important;
+  position: absolute;
+  top: 60%;
+  right: 20%;
+  will-change: transform;
+  animation: move-astronaut 50s infinite linear both alternate;
+}
+
+.star {
+  background: url(http://salehriaz.com/404Page/img/overlay_stars.svg);
+  background-repeat: repeat;
+  background-size: contain;
+  background-position: left top;
+}
+
+.glowing-stars .star {
+  position: absolute;
+  border-radius: 100%;
+  background-color: #fff;
+  width: 4px;
+  height: 4px;
+  opacity: 0.3;
+  will-change: opacity;
+}
+
+.glowing-stars .star:nth-child(1) {
+  top: 80%;
+  left: 25%;
+  animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.glowing-stars .star:nth-child(2) {
+  top: 20%;
+  left: 40%;
+  animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.glowing-stars .star:nth-child(3) {
+  top: 25%;
+  left: 25%;
+  animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.glowing-stars .star:nth-child(4) {
+  top: 75%;
+  left: 80%;
+  animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.glowing-stars .star:nth-child(5) {
+  top: 90%;
+  left: 50%;
+  animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+@media screen and (max-width: 700px) {
+  .nav {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+  .logo img {
+    width: 120px;
+  }
+}
